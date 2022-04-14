@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./assets/css/main.css" type="text/css" />
+		<link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+		<title>Jeu de combat</title>
+	</head>
+	<body>
+		<div class="flex flex-col justify-center items-center h-screen text-gray-700">
+			<h1 class="text-4xl font-bold">Jeu de combat</h1>
+
+			<div class="choices-container mt-10">
+				<h2 class="text-xl text-center">Veuillez sélectionner votre classe</h2>
+
+				<div class="choices flex gap-x-10 mt-10">
+					<div
+						data-character="1"
+						class="cursor-pointer bg-gradient-to-tr from-indigo-700 to-purple-700 w-96 text-white shadow-md p-4"
+					>
+						<span class="block text-2xl text-center font-semibold">Archer</span>
+					</div>
+
+					<div
+						data-character="2"
+						class="cursor-pointer bg-gradient-to-tr from-indigo-700 to-purple-700 w-96 text-white shadow-md p-4"
+					>
+						<span class="block text-2xl text-center font-semibold">Guerrier</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="hidden fight-zone w-4/5 border-2 border-black mt-10">
+				<div class="absolute top-6 left-5">Niveau de votre personnage : <span class="level font-bold">1</span></div>
+				<div class="absolute top-12 left-5">Nombre de monstres tué : <span class="kill font-bold">0</span></div>
+				<div class="money-container absolute top-6 right-5">Argent : <span class="money font-bold">0</span>€</div>
+				<div class="mana-container hidden absolute top-12 right-5">
+					Attaque spéciale : <span class="mana font-bold">0</span>/250
+				</div>
+
+				<div class="character flex-1 border-2 border-black p-5">
+					<span class="type text-xl">Guerrier</span>
+					<progress class="progress-life progress-life-character w-full mt-4" max="100" value="100"></progress>
+					<progress class="progress-experience w-full mt-4" max="50" value="0"></progress>
+
+					<div class="actions flex gap-x-2 mt-5">
+						<button class="attack cursor-pointer bg-indigo-700 text-white shadow-md px-4 py-2">Attaquer</button>
+						<button class="heal cursor-pointer bg-indigo-700 text-white shadow-md px-4 py-2">Se soigner</button>
+						<button
+							disabled
+							class="super-attack hidden cursor-pointer disabled:bg-indigo-100 disabled:cursor-not-allowed bg-indigo-700 text-white shadow-md px-4 py-2"
+						>
+							Attaque spéciale
+						</button>
+					</div>
+				</div>
+
+				<div class="monster flex-1 border-2 border-black p-5">
+					<span class="monster-type text-xl">Dragon</span>
+					<progress class="progress-life progress-life-monster w-full mt-4" max="100" value="100"></progress>
+				</div>
+			</div>
+
+			<div class="lose hidden mt-10">
+				<h2 class="text-xl text-center">Vous avez perdu la partie !</h2>
+
+				<div class="mt-10">
+					<span class="text-lg text-center">Récapitulatif des montres tués </span>
+
+					<ul class="text-center mt-5">
+						<li>Dragon : <span class="dragon-kill font-bold">0</span></li>
+						<li>Troll : <span class="troll-kill font-bold">0</span></li>
+						<li>Araignée : <span class="spider-kill font-bold">0</span></li>
+					</ul>
+
+					<button
+						onclick="location.reload()"
+						class="cursor-pointer block bg-indigo-700 text-white shadow-md mx-auto mt-10 px-4 py-2"
+					>
+						Recommencer
+					</button>
+				</div>
+			</div>
+
+			<div class="win hidden mt-10">
+				<h2 class="text-xl text-center">Vous avez gagné la partie !</h2>
+
+				<button
+					onclick="location.reload()"
+					class="cursor-pointer block bg-indigo-700 text-white shadow-md mx-auto mt-10 px-4 py-2"
+				>
+					Recommencer
+				</button>
+			</div>
+		</div>
+		<script type="module" src="./assets/javascripts/index.js"></script>
+	</body>
+</html>

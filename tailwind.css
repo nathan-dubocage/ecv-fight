@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.progress-life::-webkit-progress-value {
+	@apply bg-red-500;
+}
+
+.progress-experience {
+	@apply h-2;
+}
+
+.progress-life::-webkit-progress-bar,
+.progress-experience::-webkit-progress-bar {
+	@apply bg-gray-200;
+}
